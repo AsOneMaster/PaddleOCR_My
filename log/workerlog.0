@@ -1,0 +1,32 @@
+D:\creatTool\anaconda\lib\site-packages\win32\lib\pywintypes.py:2: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+  import imp, sys, os
+Traceback (most recent call last):
+  File "tools/eval.py", line 26, in <module>
+    from ppocr.data import build_dataloader
+  File "D:\PythonProject\PaddleOCR\ppocr\data\__init__.py", line 23, in <module>
+    import paddle
+  File "D:\creatTool\anaconda\lib\site-packages\paddle\__init__.py", line 269, in <module>
+    from .hapi import Model  # noqa: F401
+  File "D:\creatTool\anaconda\lib\site-packages\paddle\hapi\__init__.py", line 25, in <module>
+    logger.setup_logger()
+  File "D:\creatTool\anaconda\lib\site-packages\paddle\hapi\logger.py", line 47, in setup_logger
+    local_rank = ParallelEnv().local_rank
+  File "D:\creatTool\anaconda\lib\site-packages\paddle\fluid\dygraph\parallel.py", line 119, in __init__
+    self._device_id = int(selected_gpus[0])
+ValueError: invalid literal for int() with base 10: "'0'"
+D:\creatTool\anaconda\lib\site-packages\win32\lib\pywintypes.py:2: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+  import imp, sys, os
+Traceback (most recent call last):
+  File "tools/eval.py", line 26, in <module>
+    from ppocr.data import build_dataloader
+  File "D:\PythonProject\PaddleOCR\ppocr\data\__init__.py", line 23, in <module>
+    import paddle
+  File "D:\creatTool\anaconda\lib\site-packages\paddle\__init__.py", line 269, in <module>
+    from .hapi import Model  # noqa: F401
+  File "D:\creatTool\anaconda\lib\site-packages\paddle\hapi\__init__.py", line 25, in <module>
+    logger.setup_logger()
+  File "D:\creatTool\anaconda\lib\site-packages\paddle\hapi\logger.py", line 47, in setup_logger
+    local_rank = ParallelEnv().local_rank
+  File "D:\creatTool\anaconda\lib\site-packages\paddle\fluid\dygraph\parallel.py", line 119, in __init__
+    self._device_id = int(selected_gpus[0])
+ValueError: invalid literal for int() with base 10: "'0'"

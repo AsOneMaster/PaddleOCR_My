@@ -1,0 +1,220 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: auto;
+    inset: 0;
+    font-size: 1rem;
+    line-height: 1.42857;
+    overflow-x: hidden;
+    background: inherit;
+    tab-size: 4;
+}
+
+html {
+    font-size: 14px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+body.typora-export {
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: #000080;
+}
+
+.main {
+    margin: 0 auto;
+    width: 74%;
+    text-align: center;
+}
+
+.img_ocr {
+    width: 100%;
+    height: 420px;
+    margin: 0 auto;
+    border: 1px solid #D3D3D3;
+    background: #D3D3D3;
+    padding-top: 3px;
+}
+
+.img {
+    display: block;
+    float: left;
+    margin: 1px;
+}
+
+.or_input {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    /*width: 100%*/
+}
+
+.input_img {
+    margin-top: 25px;
+    background-color: #2A2A9A;
+    color: white;
+    display: inline-block;
+    width: 100%;
+    height: 45px;
+    border: 0;
+    font-size: 16px;
+    box-sizing: content-box;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 45px;
+}
+
+.input_img:hover {
+    background-color: #000080;
+}
+
+.button_det {
+    margin-top: 25px;
+    background-color: #2A2A9A;
+    color: white;
+    display: inline-block;
+    width: 98%;
+    height: 45px;
+    border: 0;
+    font-size: 16px;
+    box-sizing: content-box;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 45px;
+}
+
+.button_det:hover {
+    background-color: #000080;
+}
+
+.main_button_det {
+    position: relative;
+    top: 20px;
+}
+
+.main_low {
+    /*position:absolute;*/
+    /*right:100px;*/
+    /*top:150px;*/
+    margin: 0 auto;
+    width: 500px;
+    height: 40px;
+    position: relative;
+    top: 200px;
+}
+
+#content {
+
+    /*width: 450px;*/
+
+    /*!*padding: 30px;*!*/
+
+    /*margin: 0 auto;*/
+
+    /*background-color: #fff;*/
+
+    /*!*border-left: 30px solid #1D81B6;*!*/
+
+    /*border-right: 1px solid #ddd;*/
+
+    /*box-shadow: 0 0 16px #aaa;*/
+
+    /*!*position: relative;*!*/
+
+    /*!*top: 100px;*!*/
+
+
+}
+
+#table1 {
+
+    font: bold 16px/1.4em "Trebuchet MS", sans-serif;
+    width: 100%;
+    text-align-all: center;
+
+}
+
+#table1 thead th {
+
+    padding: 15px;
+
+    border: 1px solid #93CE37;
+
+    border-bottom: 3px solid #9ED929;
+
+    text-shadow: 1px 1px 1px #568F23;
+
+    color: #fff;
+
+    background-color: #9DD929;
+
+    border-radius: 5px 5px 0 0;
+
+}
+
+#table1 thead th:empty {
+
+    background-color: transparent;
+
+    border: none;
+
+}
+
+#table1 tbody th {
+
+    padding: 0 10px;
+
+    border: 1px solid #93CE37;
+
+    border-right: 3px solid #9ED929;
+
+    text-shadow: 1px 1px 1px #568F23;
+
+    color: #666;
+
+    background-color: #9DD929;
+
+    border-radius: 5px 0 0 5px;
+
+}
+
+#table1 tbody td {
+
+    padding: 10px;
+
+    border: 2px solid #E7EFE0;
+
+    text-align: center;
+
+    text-shadow: 1px 1px 1px #fff;
+
+    color: #666;
+
+    background-color: #DEF3CA;
+
+    border-radius: 2px;
+
+}
+
+#table1 tbody span.check::before {
+
+    /*content: url(images/check0.png);*/
+
+}
+
+#table1 tfoot td {
+
+    padding: 10px 0;
+
+    font-size: 32px;
+
+    color: #9CD009;
+
+    text-align: center;
+
+    text-shadow: 1px 1px 1px #444;
+
+}
+

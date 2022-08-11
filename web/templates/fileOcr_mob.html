@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--    使用本地图像-->
+    <meta name="referrer" content="never">
+    <!--    自适应手机比例-->
+    <meta name="viewport" content="width=980, maximum-scale=1.0, user-scalable=yes"/>
+
+    <link rel="stylesheet" type="text/css" href="static/css/head.css"/>
+    <link rel="stylesheet" type="text/css" href="static/css/main.css"/>
+    <title>角钢OCR</title>
+    <script src="https://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body class="typora-export" style="height: 100vh">
+<div id="container">
+    <header class="top">
+        <div class="top_left"><img src="static/logo.png"></div>
+        <div class="top_name">角钢钢印字符检测</div>
+        <div class="top_right">经理 0531-10086-10010</div>
+    </header>
+    <div class="nav">
+        <ul>
+            <li>首页</li>
+            <li>关于我们</li>
+            <li>新闻资讯</li>
+            <li>产品介绍</li>
+            <li>解决方案</li>
+            <li>新品推送</li>
+            <li>资料下载</li>
+            <li>加盟合作</li>
+            <li>联系我们</li>
+        </ul>
+    </div>
+    <hr style="margin-top: 5px;">
+
+    <div class="main">
+        <div style="text-align-all: center">
+            <!--     <form method="post" action="#" enctype="multipart/form-data">-->
+            <div>
+                <label class="input_img" for="file">选择图片
+                    <input class="or_input" type="file" name="file" accept="image/*" multiple="multiple" id="file"
+                           onchange="setImagePreview();">
+                </label>
+                <!--                <img class="dtbj_pic" src="static/camra.jpg" alt="暂无图片" style="width: 300px; height: 300px; margin: 10px;"/>-->
+            </div>
+            <div id="pic_list" class="img_ocr">
+                <!--                <img class="dtbj_pic" src="static/camra.jpg" alt="暂无图片" style="width: 300px; height: 300px; margin: 10px;"/>-->
+            </div>
+            <!--            <button type="submit">上传</button>-->
+            <div class="main_button_det">
+                <button class="button_det" id="btn_uploadimg">检测</button>
+            </div>
+            <!--     </form>-->
+        </div>
+        <div class="main_low" id="div1"></div>
+        <p id="content">
+
+        <table id="table1">
+
+            <thead>
+
+            <tr>
+
+                <!--                <th></th>-->
+
+                <th scope="col">识别结果</th>
+
+                <!--                <th scope="col" abbr="Medium">Smart Medium</th>-->
+
+                <!--                <th scope="col" abbr="Business">Smart Business</th>-->
+
+                <!--                <th scope="col" abbr="Deluxe">Smart Deluxe</th>-->
+
+            </tr>
+
+            </thead>
+
+            <tbody id="item">
+
+
+            </tbody>
+
+        </table>
+
+        </p>
+    </div>
+    <footer class="bottom"></footer>
+</div>
+<script>
+
+
+
+    $(window).bind('resize load', function() {
+    $("body").css("zoom", $(window).width() / 980);
+    $("body").css("display", "block");
+    $("body").css("zoom", $(window).width() / 980);
+});
+
+
+
+    function setImagePreview(value) {
+        //如果有img，直接清空
+        $('#pic_list img').remove();
+        var docObj = document.getElementById("file");
+        //var imgObjPreview=document.getElementById("preview");
+        var list = document.getElementById("pic_list");
+        var button = document.getElementById("file_a");
+        if (docObj.files) {
+            if (docObj.files.length > 16) {
+                alert("图片数量不能超过16张");
+                return true;
+            }
+            for (var i = 0; i < docObj.files.length; i++) {
+                var imgObjPreview = document.createElement("img");
+                imgObjPreview.className = "img"
+                if (docObj.files.length > 1) {
+                    imgObjPreview.style.width = (100 / 4.08) + '%';
+                    imgObjPreview.style.height = (100 / 4.08) + '%';
+                    // imgObjPreview.style.margin = "5px";
+                } else {
+                    imgObjPreview.style.width = '100%';
+                    imgObjPreview.style.height = '100%';
+                }
+
+                // imgObjPreview.style.margin = "10px";
+                console.log("高，宽：", imgObjPreview.style.width)
+                //imgObjPreview.src = docObj.files[0].getAsDataURL();
+
+                //火狐7以上版本不能用上面的getAsDataURL()方式获取，需要一下方式
+                imgObjPreview.src = window.URL.createObjectURL(docObj.files[i]);
+                // console.log("imgObjPreview.src-----------", imgObjPreview)
+                list.insertBefore(imgObjPreview, button);
+            }
+
+
+        }
+        return true;
+    }
+
+</script>
+
+<script type="text/javascript">
+    $(function () {
+        $("#btn_uploadimg").click(function () {
+            $('#div1 p').remove()
+            var fileObj = document.getElementById("file"); // js 获取文件对象
+            if (typeof (fileObj) == "undefined" || fileObj.size <= 0) {
+                alert("请选择图片");
+                return;
+            }
+            var formFile = new FormData();
+            // formFile.append("action", "UploadVMKImagePath");
+            console.log("btn_uploadimg---------", fileObj.files)
+            for (var i = 0; i < fileObj.files.length; i++) {
+                formFile.append("file", fileObj.files[i]); //加入文件对象
+            }
+
+            var img = formFile;
+            $.ajax({
+                url: "/ocr",
+                data: img,
+                type: "post",
+                dataType: "json",
+                cache: false,//上传文件无需缓存
+                processData: false,//用于对data参数进行序列化处理 这里必须false
+                contentType: false, //必须
+                success: function (result) {
+                    var html = ""
+
+                    console.log(result)
+                    console.log(typeof result['txt'])
+                    var x;
+                    // for (x in result['txt']) {
+                    //     html += '<p>' + result['txt'][x] + '</p>';
+                    //     // console.log(html);
+                    // }
+                    for (x in result['txt']) {
+                        html += '<tr><td>' + result['txt'][x] + '</td></tr>';
+                        // console.log(html);
+                    }
+                    console.log(html);
+                    // $("#div1").html(result['txt']);
+                    // $("#ocr_img").attr("src",result['draw_img']);
+                    // console.info(result['draw_img']);
+                    $("#item").append(html);
+
+                },
+                error: function (error) {
+                    console.log(error)
+                }
+            })
+        })
+    })
+</script>
+</body>
+</html>
